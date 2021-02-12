@@ -1,8 +1,25 @@
-const typeorm = require("typeorm");
+const EntitySchema = require("typeorm").EntitySchema;
 
 class Commentary {
     id;
     comentario;
     audio;
 }
-module.exports= Commentary;
+
+module.exports = new EntitySchema({
+    name: 'Commentary',
+    target: Commentary,
+    columns: {
+        id: {
+            primary: true,
+            type: 'int',
+            generated: true
+        },
+        comentario: {
+            type: 'varchar'
+        },
+        audio: {
+            type: 'text'
+        }
+    }
+});

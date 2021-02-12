@@ -6,7 +6,7 @@ class CreateTableComments1613141722753 {
     async up(queryRunner) {
         await queryRunner.createTable(
             new Table({
-                name: "comentarios",
+                name: "Commentary",
                 columns:[
                     {
                         name: "id",
@@ -30,7 +30,7 @@ class CreateTableComments1613141722753 {
     }
 
     async down(queryRunner )  {
-        await queryRunner.dropTable("comentarios");
+        await queryRunner.dropTable("Commentary");
     }
 
 }
