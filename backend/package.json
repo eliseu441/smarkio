@@ -6,12 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "typeorm": "node ./node_modules/typeorm/cli.js",
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "ibm-watson": "^6.0.0",
+    "nodemon": "^2.0.7",
     "sqlite3": "^5.0.0",
     "ts-node-dev": "^1.1.1",
     "typeorm": "^0.2.31"

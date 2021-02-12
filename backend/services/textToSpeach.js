@@ -8,4 +8,4 @@ const textToSpeech = new TextToSpeechV1({
   url: 'https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/c85a8a9c-0f22-48a6-a715-aa8117d85b3b',
 });
 
-export default textToSpeech;
+module.exports = textToSpeech;
