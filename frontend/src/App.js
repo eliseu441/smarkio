@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import api from './services/api';
 
+import Commentary from './components/Commentary';
+
 import './app.css';
 
 function App() {
@@ -30,12 +32,8 @@ function App() {
     setCommentaries(response.data);
 
     setCommentary('');
-
-    window.location.reload();
-  }
-
-  const handleListen = () => {
-    audioRef.current.play(); 
+    
+    setTimeout(window.location.reload(), 2000);
   }
 
   return (
@@ -59,18 +57,7 @@ function App() {
 
           <div className="commentaries-wrapper">
             { commentaries &&  commentaries.map( (item, index) => (
-              <div className="commentary" key={item.id}>
-                <p>
-                {item.comentario}
-                </p>                
-                <button type="button" onClick={handleListen}>
-                  Ouvir
-                </button>
-
-                <audio ref={audioRef}>
-                  <source src={`http://localhost:3333/files/${item.audio}`} />
-                </audio>
-              </div>
+              <Commentary key={item.id} comentario={item} />
             ))}
           </div>
         </div>
