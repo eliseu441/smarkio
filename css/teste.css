@@ -1,0 +1,39 @@
+.linha{
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: row;
+  }
+  
+  .coluna-50 {
+    width: 50%;
+  }
+  .coluna-35 {
+   margin-left: 24px;
+   width: 45%;
+   padding-left: 10px;
+
+ }
+  .roll{
+     display: flex;
+     flex-direction: row;
+     justify-content: flex-start;
+     align-items: center;
+  }
+  .roll button{
+     width: 100px;
+     height: 32px;
+     margin: 5px;
+     background-color: Gainsboro;
+      border-radius: 5px;
+      transform: scale(1.05);
+  }
+  .roll p{
+     width: 326px;
+     font-size: large;
+  }
+
+ #linha-da-coluna {
+	margin: left ;
+	padding-left:1px;
+	background:#666;
+}
