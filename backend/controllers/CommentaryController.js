@@ -1,11 +1,13 @@
 const typeorm = require("typeorm");
 const Commentary = require("../models/Commentary");
-const commentaryRepository = typeorm.getRepository(Commentary);
 
 module.exports = {
 
     async create(request, response) {
         const texto = request.body.texto;
+
+        const commentaryRepository = typeorm.getRepository(Commentary);
+
         const comentario = commentaryRepository.create({
             comentario: texto,
             audio: "batata"
