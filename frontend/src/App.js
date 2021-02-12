@@ -27,13 +27,15 @@ function App() {
       texto: commentary,
     });
     
+    setTimeout(window.location.reload(), 2000);
+
     const response  = await api.get('/');
     
     setCommentaries(response.data);
 
     setCommentary('');
     
-    setTimeout(window.location.reload(), 2000);
+    
   }
 
   return (
