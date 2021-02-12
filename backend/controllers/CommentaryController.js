@@ -7,8 +7,6 @@ module.exports = {
         const commentaryRepository = typeorm.getRepository(Commentary);
         const texto = request.body.texto;
 
-        const commentaryRepository = typeorm.getRepository(Commentary);
-
         const comentario = commentaryRepository.create({
             comentario: texto,
             audio: "batata"
