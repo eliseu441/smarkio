@@ -36,7 +36,7 @@ function App() {
         <div className="content-wrapper">
           <h1>Comentário</h1>
           <form onSubmit={handleSubmit}>
-            <input type="textarea" value={commentary} onChange={ e => setCommentary(e.target.value)}/>
+            <textarea type="textarea" value={commentary} onChange={ e => setCommentary(e.target.value)}/>
 
             <button type="submit"> cadastrar</button>
           </form>
@@ -72,3 +72,60 @@ function App() {
 }
 
 export default App;
+/*<!DOCTYPE html>
+<html lang="pt-BR">
+<style>
+    reader {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .meubotao {
+        background-color: Gainsboro;
+        border-radius: 5px;
+        transform: scale(1.05);
+        margin-left: 4px;
+    }
+    
+
+
+ 
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Teste Smarkio
+    </title>
+<link rel="stylesheet" type="text/css" media="all" href="css/style.css"/>
+
+</head>
+
+<body>
+
+    <body bgcolor=WhiteSmoke> </body>
+    <div id="linha">
+    <div class="coluna-50">
+        <reader id="topo-primeira-coluna">
+            <b>Comentário</b>
+        </reader>
+        <p>
+            <textarea rows="7" cols="30" style="resize: none"></textarea>
+        </p>
+        <input type="Button" class="meubotao" style="width:225px; height:26px" value="Cadastrar">
+    </div>
+    <div class="coluna-50">
+    <reader id="topo-segunda-coluna">
+        <b>Comentários</b>
+    </reader>
+    <h1>
+        Num ninho de mafagafos há sete mafagafinhos.
+        Quando a mafagafa gafa, gafam os sete mafagafinhos
+    </h1>
+    </div>
+
+
+    </div>
+
+</body>
+
+</html>*/
