@@ -46,7 +46,10 @@ module.exports = {
     async index(request, response) {
         const commentaryRepository = typeorm.getRepository(Commentary);
 
-        const commentaries = await commentaryRepository.find();
+        const commentaries = await commentaryRepository.find({
+            order: { audio: "DESC" },
+            take: 3,
+        });
 
         return response.json(commentaries)
     }

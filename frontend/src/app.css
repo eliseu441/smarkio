@@ -40,7 +40,7 @@ h1 {
   flex-direction: column;
 }
 
-.container .form-container form input {
+.container .form-container form textarea {
   margin-top: 1rem;
   height: 10rem;
   width: 25rem;

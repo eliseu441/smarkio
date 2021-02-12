@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import api from './services/api';
 
 import './app.css';
 
 function App() {
+  const audioRef = useRef(null);
+
   const [commentary, setCommentary] = useState('');
   const [commentaries, setCommentaries] = useState([]);
 
@@ -28,6 +30,12 @@ function App() {
     setCommentaries(response.data);
 
     setCommentary('');
+
+    window.location.reload();
+  }
+
+  const handleListen = () => {
+    audioRef.current.play(); 
   }
 
   return (
@@ -36,7 +44,7 @@ function App() {
         <div className="content-wrapper">
           <h1>Comentário</h1>
           <form onSubmit={handleSubmit}>
-            <input type="textarea" value={commentary} onChange={ e => setCommentary(e.target.value)}/>
+            <textarea type="textarea" value={commentary} onChange={ e => setCommentary(e.target.value)}/>
 
             <button type="submit"> cadastrar</button>
           </form>
@@ -55,11 +63,11 @@ function App() {
                 <p>
                 {item.comentario}
                 </p>                
-                <button type="button" onClick={() => {} }>
+                <button type="button" onClick={handleListen}>
                   Ouvir
                 </button>
 
-                <audio controls>
+                <audio ref={audioRef}>
                   <source src={`http://localhost:3333/files/${item.audio}`} />
                 </audio>
               </div>
