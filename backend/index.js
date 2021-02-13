@@ -15,7 +15,9 @@ app.post("/", commentaryController.create);
 app.get('/', commentaryController.index);
 
 
-app.use('/files', express.static('./tmp'));
+app.use('/files', express.static('./tmp', {
+    etag: false
+}));
 
 app.listen(3333,()=>{
     console.log("servidor rodando na porta 3333")

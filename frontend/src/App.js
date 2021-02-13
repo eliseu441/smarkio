@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import api from './services/api';
 
 import Commentary from './components/Commentary';
@@ -6,18 +6,17 @@ import Commentary from './components/Commentary';
 import './app.css';
 
 function App() {
-  const audioRef = useRef(null);
-
   const [commentary, setCommentary] = useState('');
   const [commentaries, setCommentaries] = useState([]);
 
   useEffect(() => {
     async function getCommentariesInfo() {
       const response  = await api.get('/');
+      console.log(response.data);
       setCommentaries(response.data);
     }
     getCommentariesInfo();
-  }, [commentaries]);
+  }, []);
 
 
   const handleSubmit = async (e) => {
@@ -27,15 +26,13 @@ function App() {
       texto: commentary,
     });
     
-    setTimeout(window.location.reload(), 2000);
-
     const response  = await api.get('/');
+    console.log(response.data);
     
+    setTimeout(window.location.reload(), 5000);
     setCommentaries(response.data);
 
     setCommentary('');
-    
-    
   }
 
   return (
@@ -58,7 +55,7 @@ function App() {
           <h1>Comentários</h1>
 
           <div className="commentaries-wrapper">
-            { commentaries &&  commentaries.map( (item, index) => (
+            {commentaries && commentaries.map( (item, index) => (
               <Commentary key={item.id} comentario={item} />
             ))}
           </div>

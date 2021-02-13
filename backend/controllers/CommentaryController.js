@@ -3,8 +3,6 @@ const typeorm = require("typeorm");
 const Commentary = require("../models/Commentary");
 const textToSpeech = require('../services/textToSpeach');
 
-
-
 module.exports = {
     
     async create(request, response) {
