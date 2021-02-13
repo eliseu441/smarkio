@@ -25,11 +25,18 @@ function App() {
       texto: commentary,
     });
     
+    setTimeout(window.location.reload(), 2000);
+
     const response  = await api.get('/');
     
     setCommentaries(response.data);
 
     setCommentary('');
+<<<<<<< HEAD
+=======
+    
+    
+>>>>>>> fa5e4a47e14c4f154610e20bc13e695aedfef417
   }
 
   return (
