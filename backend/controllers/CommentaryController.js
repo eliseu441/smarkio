@@ -1,4 +1,5 @@
 const fs = require('fs');
+const util = require('util');
 const typeorm = require("typeorm");
 const Commentary = require("../models/Commentary");
 const textToSpeech = require('../services/textToSpeach');
@@ -20,16 +21,8 @@ module.exports = {
 
             const timeStamp = Date.now();
         
-            textToSpeech.synthesize(synthesizeParams)
-            .then(response => {
-                return textToSpeech.repairWavHeaderStream(response.result);
-            })
-            .then(buffer => {
-                fs.writeFileSync(`tmp/${timeStamp}audio.mp3`, buffer);
-            })
-            .catch(err => {
-                console.log('error:', err);
-            });
+            const audioResponse = (await textToSpeech.synthesize(synthesizeParams)).result;
+            audioResponse.pipe(fs.createWriteStream(`tmp/${timeStamp}audio.mp3`))
 
             const comentario = commentaryRepository.create({
                 comentario: texto,
