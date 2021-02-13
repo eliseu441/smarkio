@@ -6,8 +6,6 @@ import Commentary from './components/Commentary';
 import './app.css';
 
 function App() {
-  const audioRef = useRef(null);
-
   const [commentary, setCommentary] = useState('');
   const [commentaries, setCommentaries] = useState([]);
 
@@ -32,8 +30,6 @@ function App() {
     setCommentaries(response.data);
 
     setCommentary('');
-    
-    setTimeout(window.location.reload(), 2000);
   }
 
   return (
